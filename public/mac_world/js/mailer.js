@@ -3,13 +3,16 @@
  */
 $(document).ready(function(){
     var name,to,subject,text;
-    $("#contactButton").click(function(){
+    $("#contactButton").click(function(event){
+        event.preventDefault();
         to=$("#contactEmail").val();
         subject=$("#contactSubject").val();
         text=$("#contactMessage").val();
         name=$("#contactName").val();
         $(".text-loader").text("Sending E-mail...Please wait");
+        console.log("Sending!!");
         $.get("http://localhost:3000/send",{to:to,subject:subject,text:text,name:name},function(data){
+            alert("HEY!!");
             if(data=="sent")
             {
                 $("#message").html("Email is been sent at "+to+" . Please check inbox !");
