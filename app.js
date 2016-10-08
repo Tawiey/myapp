@@ -47,7 +47,7 @@ app.use('/send', function (req, res) {
         to: req.query.to,
         subject: req.query.subject,
         text: req.query.text,
-        html: '<div>Hi there!' +
+        html: '<div>Hi ' + req.query.name +
             '<br><br> Thanks for contacting us on our platform, your request has been received and we will get in touch with you soon' +
             '<br> Take it easy' +
             '<br> <a href="http://tawanda.me">Team Mac World</a>' +

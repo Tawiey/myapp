@@ -9,7 +9,8 @@ $(document).ready(function(){
         text=$("#contactMessage").val();
         name=$("#contactName").val();
         $(".text-loader").text("Sending E-mail...Please wait");
-        $.get("http://localhost:3000/send",{to:to,subject:subject,text:text,name:name},function(data){
+        $.post("http://localhost:3000/send",{to:to,subject:subject,text:text,name:name},function(data) {
+            console.log('data is', data);
             if(data=="sent")
             {
                 $("#message").html("Email is been sent at "+to+" . Please check inbox !");
