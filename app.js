@@ -41,8 +41,7 @@ app.use('/', routes);
 
 //middleware for sending email
 app.use('/send', function (req, res) {
-    var id = 'Hi ' + req.query.name;
-    console.log(id);
+
     var mailOptions;
     mailOptions = {
         to: req.query.to,
@@ -78,9 +77,9 @@ app.use('/subscribe', function (req, res) {
         html: '<div>Hi there!' +
         '<br><br> Thanks for subscribing to our monthly newsletter,' +
             '<br> You wanna contribute to the newsletter, talk to US via this email' +
-        '<br> Take it easy' +
+        '<br><br> Take it easy' +
         '<br> <a href="http://tawanda.me">Team Mac World</a>' +
-        '<br> <br><sub>If you got this message by mistake please click <a href="http://localhost:3000/unsubscribe">here</a> and destroy this message immediately</sub></div>'
+        '<br> <br><sub>If you got this message by mistake please click <a href="http://localhost/unsubscribe">here</a> and destroy this message immediately</sub></div>'
     };
 
     console.log(mailOptions);
