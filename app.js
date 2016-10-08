@@ -31,12 +31,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
 app.use('/users', users);
 app.use('/time', birds);
 
-app.use('/static', express.static('public/mac_world'));
+app.use('/', express.static('public/mac_world'));
+
+app.use('/', routes);
+
 
 //middleware for sending email
 app.use('/send', function (req, res) {
