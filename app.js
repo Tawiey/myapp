@@ -9,6 +9,18 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var birds = require('./public/javascripts/script');
 var nodemailer = require("nodemailer");
+'use strict';
+
+require('letsencrypt-express').create({
+
+    server: 'staging'
+
+    , agreeTos: true
+
+    , approveDomains: [ 'tawanda.me' ]
+
+
+}).listen(80, 443);
 var app = express();
 
 //setting up SMTP stream
