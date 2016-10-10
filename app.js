@@ -13,13 +13,15 @@ var nodemailer = require("nodemailer");
 
 require('letsencrypt-express').create({
 
-    server: 'staging',
+    server: 'https://acme-v01.api.letsencrypt.org/directory'
 
-    email: 'tmutambwe@gmail.com'
+    ,email: 'tmutambwe@gmail.com'
 
     , agreeTos: true
 
     , approveDomains: [ 'tawanda.me' ]
+
+    , app: require('express')().use('/', express.static('public/mac_world'))
 
 
 }).listen(80, 443);
