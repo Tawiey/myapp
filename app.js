@@ -13,7 +13,9 @@ var nodemailer = require("nodemailer");
 
 require('letsencrypt-express').create({
 
-    server: 'staging'
+    server: 'staging',
+
+    email: 'tmutambwe@gmail.com'
 
     , agreeTos: true
 
