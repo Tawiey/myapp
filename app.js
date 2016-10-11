@@ -13,7 +13,7 @@ var nodemailer = require("nodemailer");
 
 require('letsencrypt-express').create({
 
-    server: 'https://acme-v01.api.letsencrypt.org/directory'
+    server: 'staging'
 
     ,email: 'tmutambwe@gmail.com'
 
