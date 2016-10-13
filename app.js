@@ -11,7 +11,7 @@ var birds = require('./public/javascripts/script');
 var nodemailer = require("nodemailer");
 'use strict';
 
-/*require('letsencrypt-express').create({
+require('letsencrypt-express').create({
 
     server: 'staging'
 
@@ -24,7 +24,7 @@ var nodemailer = require("nodemailer");
     , app: require('express')().use('/', express.static('public/mac_world'))
 
 
-}).listen(80, 443);*/
+}).listen(80, 443);
 var app = express();
 
 //setting up SMTP stream
