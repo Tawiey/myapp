@@ -7,9 +7,9 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var birds = require('./public/javascripts/script');
+var birds = require('./public/admin/javascripts/script');
 var nodemailer = require("nodemailer");
-'use strict';
+/*'use strict';
 
 require('letsencrypt-express').create({
 
@@ -24,7 +24,7 @@ require('letsencrypt-express').create({
     , app: require('express')().use('/', express.static('public/mac_world'))
 
 
-}).listen(80, 443);
+}).listen(80, 443);*/
 var app = express();
 
 //setting up SMTP stream
@@ -32,7 +32,7 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
     service: "Gmail",
     auth: {
         user: "tmutambwe@gmail.com",
-        pass: "25019600"
+        pass: "Mutambwe.36"
     }
 });
 
@@ -51,6 +51,7 @@ app.use('/users', users);
 app.use('/time', birds);
 
 app.use('/', express.static('public/mac_world'));
+app.use('/admin', express.static('public/admin'));
 
 app.use('/', routes);
 
@@ -60,14 +61,14 @@ app.use('/send', function (req, res) {
 
     var mailOptions;
     mailOptions = {
-        to: req.query.to,
-        subject: req.query.subject,
-        text: req.query.text,
-        html: '<div>Hi ' + req.query.name +
+        to: req.body.email,
+        subject: req.body.subject,
+        text: req.body.text,
+        html: '<div>Hi ' + req.body.name +
             '<br><br> Thanks for contacting us on our platform, your request has been received and we will get in touch with you soon' +
-            '<br> Take it easy' +
+            '<br><br> Take it easy' +
             '<br> <a href="http://tawanda.me">Team Mac World</a>' +
-        '<br> <br><sub>If you got this message by mistake please click <a href="http://localhost:3000/uncontact">here</a> and destroy this message immediately</sub></div>'
+        '<br> <br><sub>If you got this message by mistake please click <a href="http://tawanda.me/uncontact">here</a> and destroy this message immediately</sub></div>'
     };
 
     console.log(mailOptions);
@@ -95,7 +96,7 @@ app.use('/subscribe', function (req, res) {
             '<br> You wanna contribute to the newsletter, talk to US via this email' +
         '<br><br> Take it easy' +
         '<br> <a href="http://tawanda.me">Team Mac World</a>' +
-        '<br> <br><sub>If you got this message by mistake please click <a href="http://localhost/unsubscribe">here</a> and destroy this message immediately</sub></div>'
+        '<br> <br><sub>If you got this message by mistake please click <a href="/unsubscribe">here</a> and destroy this message immediately</sub></div>'
     };
 
     console.log(mailOptions);
