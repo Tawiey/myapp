@@ -1,0 +1,89 @@
+html {
+    border: solid 1px ;
+    border-color: #c0c0c0;
+    margin: 20px;
+    font-family: 'Miriam Libre', sans-serif;
+}
+.h2-heading {
+    text-align: center;
+    color: #034e4a;
+
+}
+.container {
+    border: solid 1px ;
+    border-color: #057f78;
+    background-color: #F1F1F1;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+h1 {
+    color: #034e4a;
+}
+.jobfield{
+    display: block;
+    width: 96%;
+    height: 100px;
+    margin: 10px;
+    box-sizing: border-box;
+    resize: vertical;
+    border: solid 1px #bebebe;
+    padding: 12px 20px;
+
+}
+.jobfield:focus {
+    border: solid 2px #057f78;
+}
+.form-group {
+    align-content: center;
+}
+button {
+    margin: 10px;
+    margin-left: 45%;
+    border: solid 1px #057f78;
+    padding: 5px;
+    background-color: #FFFFFF;
+    color: #057f78;
+    font-size: medium;
+}
+button:hover {
+    color: #FFFFFF;
+    background-color:#057f78 ;
+}
+.form-control {
+    -webkit-transition: width 1.0s ease-in-out;
+    transition: width 1.0s ease-in-out;
+    margin: 10px;
+    border: solid 1px #bebebe;
+    display: block;
+    padding: 12px 20px;
+
+}
+.form-control:focus {
+    border: solid 2px #057f78;
+    width: 90%;
+
+}
+.job {
+    margin: 20px;
+    border: none;
+    border-left :solid 2px #057f78;
+    padding: 10px;
+}
+.copyright {
+    text-align: center;
+    color: #bebebe;
+    font-size: 15px;
+}
+.id {
+    float: right;
+    color: #057f78;
+}
+h4, small {
+    color: #708090;
+}
+.details {
+    color: #bebebe;
+    font-size: 12px;
+}
