@@ -8,15 +8,9 @@ console.log('here');
 var app = require('../app');
 var debug = require('debug')('myapp:server');
 var http = require('http');
-var https = require('https');
 var fs = require('fs');
 
 
-var sslserver = https.createServer({
-  ca: fs.readFileSync("backendhacks_me.ca-bundle"),
-  key: fs.readFileSync("backendhacks.key"),
-  ca: fs.readFileSync("backendhacks_me.crt")
-}, app)
 
 
 /**
@@ -30,22 +24,20 @@ var ports = process.env.NODE_ENV === 'production'
 var port = normalizePort(process.env.PORT || ports[1]);
 app.set('port', port);
 
-sslserver.listen(443);
-sslserver.on('error',onError);
-sslserver.on('listening',onListening);
+
 /**
  * Create HTTP server.
  */
 
-//var server = http.createServer(app);
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-//server.listen(port);
-//server.on('error', onError);
-//server.on('listening', onListening);
+server.listen(8080, 'localhost');
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -100,7 +92,7 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = sslserver.address();
+  var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
