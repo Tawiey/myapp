@@ -8,17 +8,17 @@ console.log('here');
 var app = require('../app');
 var debug = require('debug')('myapp:server');
 var http = require('http');
-/*var https = require('https');
+var https = require('https');
 http.createServer(function(req, res) {
   res.writeHead(301, {"Location": "https://" + req.headers['host'] + req.url});
   res.end();
 }).listen(80);
 
 https.createServer({
-  key: fs.readFileSync("/etc/letsencrypt/archive/example.com/privkey1.pem"),
-  cert: fs.readFileSync("/etc/letsencrypt/archive/example.com/fullchain1.pem"),
-  ca: fs.readFileSync("/etc/letsencrypt/archive/example.com/chain1.pem")
-}, app).listen(443);*/
+  ca: fs.readFileSync("backendhacks_me.ca-bundle"),
+  key: fs.readFileSync("backendhacks.key"),
+  ca: fs.readFileSync("backendhacks_me.crt")
+}, app).listen(443);
 
 /**
  * Get port from environment and store in Express.

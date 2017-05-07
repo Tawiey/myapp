@@ -9,22 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var birds = require('./public/admin/javascripts/script');
 var nodemailer = require("nodemailer");
-/*'use strict';
 
-require('letsencrypt-express').create({
-
-    server: 'staging'
-
-    ,email: 'tmutambwe@gmail.com'
-
-    , agreeTos: true
-
-    , approveDomains: [ 'tawanda.me' ]
-
-    , app: require('express')().use('/', express.static('public/mac_world'))
-
-
-}).listen(80, 443);*/
 var app = express();
 
 //setting up SMTP stream
@@ -32,7 +17,7 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
     service: "Gmail",
     auth: {
         user: "tmutambwe@gmail.com",
-        pass: "Mutambwe.36"
+        pass: "tawandammm"
     }
 });
 
@@ -67,7 +52,7 @@ app.use('/send', function (req, res) {
         html: '<div>Hi ' + req.body.name +
             '<br><br> Thanks for contacting us on our platform, your request has been received and we will get in touch with you soon' +
             '<br><br> Take it easy' +
-            '<br> <a href="http://tawanda.me">Team Mac World</a>' +
+            '<br> <a href="http://backendhacks.me">The BackendHacks Team</a>' +
         '<br> <br><sub>If you got this message by mistake please click <a href="http://tawanda.me/uncontact">here</a> and destroy this message immediately</sub></div>'
     };
 
@@ -95,7 +80,7 @@ app.use('/subscribe', function (req, res) {
         '<br><br> Thanks for subscribing to our monthly newsletter,' +
             '<br> You wanna contribute to the newsletter, talk to US via this email' +
         '<br><br> Take it easy' +
-        '<br> <a href="http://tawanda.me">Team Mac World</a>' +
+        '<br> <a href="http://backendhacks.me">Team Mac World</a>' +
         '<br> <br><sub>If you got this message by mistake please click <a href="/unsubscribe">here</a> and destroy this message immediately</sub></div>'
     };
 
