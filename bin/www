@@ -16,10 +16,9 @@ var sslserver = https.createServer({
   ca: fs.readFileSync("backendhacks_me.ca-bundle"),
   key: fs.readFileSync("backendhacks.key"),
   ca: fs.readFileSync("backendhacks_me.crt")
-}, app).listen(443);
+}, app)
 
-sslserver.on('error',onError);
-sslserver.on('listening',onListening);
+
 /**
  * Get port from environment and store in Express.
  */
@@ -28,23 +27,25 @@ var ports = process.env.NODE_ENV === 'production'
     ? [80, 443]
     : [80, 3000]
 
-var port = normalizePort(process.env.PORT || ports[0]);
+var port = normalizePort(process.env.PORT || ports[1]);
 app.set('port', port);
 
-
+sslserver.listen(port);
+sslserver.on('error',onError);
+sslserver.on('listening',onListening);
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+//var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+//server.listen(port);
+//server.on('error', onError);
+//server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
