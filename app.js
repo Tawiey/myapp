@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var birds = require('./public/admin/javascripts/script');
+var birds = require('./public/admin/javascripts/script.js');
 var nodemailer = require("nodemailer");
 
 var app = express();

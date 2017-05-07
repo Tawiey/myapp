@@ -43,7 +43,6 @@ return res.json(results);
 });
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
-    nebody
 });
 router.use('/admin/jobs', (req, res, next) => {
     const results = [];
